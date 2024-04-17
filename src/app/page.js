@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import styles from "./page.module.css";
 
 const variants = {
@@ -9,8 +9,27 @@ const variants = {
 }
 
 export default function Home() {
+    const moonAnimation = useAnimation();
+    const backgroundAnimation = useAnimation();
+
+    const handleMouseMove = e => {
+        const { clientX, clientY } = e
+        const moveX = clientX - window.innerWidth / 2;
+        const moveY = clientY - window.innerHeight / 2;
+        const offsetFactor = 15;
+        const offsetFactorBackground = -15;
+        moonAnimation.start({
+            x: moveX / offsetFactor,
+            y: moveY / offsetFactor
+        });
+        backgroundAnimation.start({
+            x: moveX / offsetFactorBackground,
+            y: moveY / offsetFactorBackground
+        });
+    }
+
   return (
-    <main className={styles.main}>
+    <main className={styles.main} onMouseMove={e => handleMouseMove(e)}>
         <motion.div
         initial={{ x: -400, opacity: 0, scale: 0}}
         animate={{ x: 0, opacity: 0.3, scale: 1, rotate: 360}}
@@ -20,11 +39,15 @@ export default function Home() {
         }}
         className={styles.moon}
         >
-            <Image
+            <motion.img
                 src="/assets/moon.png"
                 alt="Moon"
                 width={140}
                 height={140}
+                animate={moonAnimation}
+                transition={{
+                    ease: 'easeInOut',
+                }}
             />
         </motion.div>
 
@@ -103,7 +126,7 @@ export default function Home() {
           className={styles.block}
       >
         <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+            href="https://t.me/tanzent_chat"
             className={styles.link}
             target="_blank"
             rel="noopener noreferrer"
@@ -117,7 +140,7 @@ export default function Home() {
         </a>
 
         <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+            href="https://twitter.com/Tanzent_capital"
             className={styles.link}
             target="_blank"
             rel="noopener noreferrer"
@@ -131,7 +154,7 @@ export default function Home() {
         </a>
 
         <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+            href="https://t.me/tanzent_capital"
             className={styles.link}
             target="_blank"
             rel="noopener noreferrer"
@@ -171,12 +194,16 @@ export default function Home() {
             }}
             className={styles.background}
         >
-            <Image
+            <motion.img
                 src="/assets/background.png"
                 alt="background"
                 width={1515}
                 height={624}
                 className={styles.background__image}
+                animate={backgroundAnimation}
+                transition={{
+                    ease: 'easeInOut',
+                }}
             />
         </motion.div>
     </main>
