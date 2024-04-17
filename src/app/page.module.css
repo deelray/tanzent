@@ -107,7 +107,7 @@
 .moon {
   position: absolute;
   top: 8%;
-  left: 30%;
+  left: 20%;
 
   @media only screen and (max-width: 750px) {
     top: 10%;
@@ -117,19 +117,26 @@
 
 .moon__small {
   position: absolute;
-  bottom: 14%;
+  bottom: 10%;
   right: 24%;
+
+  @media only screen and (max-width: 750px) {
+    right: 10%;
+    bottom: 6%;
+  }
 }
 
 .background {
   position: absolute;
   bottom: 0;
-  right: 0;
-  left: 0;
   z-index: -1;
 }
 
 .background__image {
   object-fit: fill;
-  width: 100%;
+  width: 120vw;
+
+  @media only screen and (max-width: 750px) {
+    width: auto;
+  }
 }

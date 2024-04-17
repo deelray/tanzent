@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import { motion, transform } from "framer-motion";
+import { motion } from "framer-motion";
 import styles from "./page.module.css";
 
 const variants = {
@@ -13,7 +13,7 @@ export default function Home() {
     <main className={styles.main}>
         <motion.div
         initial={{ x: -400, opacity: 0, scale: 0}}
-        animate={{ x: 0, opacity: 1, scale: 1, rotate: 360}}
+        animate={{ x: 0, opacity: 0.3, scale: 1, rotate: 360}}
         transition={{
             ease: 'easeInOut',
             duration: 1,
@@ -147,7 +147,7 @@ export default function Home() {
 
         <motion.div
             initial={{ x: 400, opacity: 0, scale: 0}}
-            animate={{ x: 0, opacity: 1, scale: 1}}
+            animate={{ x: 0, opacity: 0.1, scale: 1}}
             transition={{
                 ease: 'easeInOut',
                 duration: 1,
@@ -163,19 +163,19 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-            initial={{ y: 400, opacity: 0}}
-            animate={{ y: 0, opacity: 0.6}}
+            initial={{ x: -400, rotate: -30, opacity: 0}}
+            animate={{ x: 0, rotate: 0, opacity: 0.4}}
             transition={{
                 ease: 'easeInOut',
-                duration: 1,
+                duration: 4,
             }}
             className={styles.background}
         >
             <Image
-                src="/assets/background.jpeg"
+                src="/assets/background.png"
                 alt="background"
-                width={1000}
-                height={900}
+                width={1515}
+                height={624}
                 className={styles.background__image}
             />
         </motion.div>
