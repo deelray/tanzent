@@ -95,15 +95,6 @@
   }
 }
 
-.logo {
-  position: relative;
-
-  @media only screen and (max-width: 750px) {
-    width: 59px;
-    height: 56px;
-  }
-}
-
 .moon {
   position: absolute;
   top: 8%;
