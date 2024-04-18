@@ -63,7 +63,7 @@ export default function Home() {
           className={styles.center}
       >
         <Image
-            src="/assets/logo.svg"
+            src="/assets/logo.png"
             alt="Tanzent Logo"
             width={73}
             height={70}
