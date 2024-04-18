@@ -10,7 +10,7 @@ const variants = {
 
 export default function Home() {
     const moonAnimation = useAnimation();
-    const backgroundAnimation = useAnimation();
+    const moonSmallAnimation = useAnimation();
 
     const handleMouseMove = e => {
         const { clientX, clientY } = e
@@ -22,7 +22,7 @@ export default function Home() {
             x: moveX / offsetFactor,
             y: moveY / offsetFactor
         });
-        backgroundAnimation.start({
+        moonSmallAnimation.start({
             x: moveX / offsetFactorBackground,
             y: moveY / offsetFactorBackground
         });
@@ -47,6 +47,7 @@ export default function Home() {
                 animate={moonAnimation}
                 transition={{
                     ease: 'easeInOut',
+                    duration: 1
                 }}
             />
         </motion.div>
@@ -177,11 +178,16 @@ export default function Home() {
             }}
             className={styles.moon__small}
         >
-            <Image
+            <motion.img
                 src="/assets/moon.png"
                 alt="Moon_small"
                 width={60}
                 height={60}
+                animate={moonSmallAnimation}
+                transition={{
+                    ease: 'easeInOut',
+                    duration: 1,
+                }}
             />
         </motion.div>
 
@@ -194,16 +200,12 @@ export default function Home() {
             }}
             className={styles.background}
         >
-            <motion.img
+            <Image
                 src="/assets/background.png"
                 alt="background"
                 width={1515}
                 height={624}
                 className={styles.background__image}
-                animate={backgroundAnimation}
-                transition={{
-                    ease: 'easeInOut',
-                }}
             />
         </motion.div>
     </main>
