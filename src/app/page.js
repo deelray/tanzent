@@ -18,11 +18,11 @@ export default function Home() {
         const moveY = clientY - window.innerHeight / 2;
         const offsetFactor = 15;
         const offsetFactorBackground = -15;
-        moonAnimation.start({
+        moonAnimation.set({
             x: moveX / offsetFactor,
             y: moveY / offsetFactor
         });
-        moonSmallAnimation.start({
+        moonSmallAnimation.set({
             x: moveX / offsetFactorBackground,
             y: moveY / offsetFactorBackground
         });
